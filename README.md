@@ -2,9 +2,9 @@
 
 A Streamlit-based web dashboard for visualizing real-time stock data and applying technical indicators like SMA and EMA using `yfinance` and `ta`.
 
-![Dashboard Screenshot](Real-Time-stocks-dashboard/img1.JPG)
-![Dashboard Screenshot](Real-Time-stocks-dashboard/img2.PNG)
-![Dashboard Screenshot](Real-Time-stocks-dashboard/img3.PNG)
+![Dashboard Screenshot](img1.JPG)
+![Dashboard Screenshot](img2.PNG)
+![Dashboard Screenshot](img3.PNG)
 
 ---
 

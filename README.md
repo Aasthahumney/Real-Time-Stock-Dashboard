@@ -2,9 +2,16 @@
 
 A Streamlit-based web dashboard for visualizing real-time stock data and applying technical indicators like SMA and EMA using `yfinance` and `ta`.
 
-![Dashboard Screenshot](img1.JPG)
-![Dashboard Screenshot](img2.PNG)
-![Dashboard Screenshot](img3.PNG)
+---
+
+### 📸 Screenshot 1 – Dashboard Overview
+![Dashboard Screenshot 1](Real-Time-stocks-dashboard/img1.JPG)
+
+### 📸 Screenshot 2 – Technical Indicators Display
+![Dashboard Screenshot 2](Real-Time-stocks-dashboard/img2.PNG)
+
+### 📸 Screenshot 3 – Multi-Ticker and Interactive Chart
+![Dashboard Screenshot 3](Real-Time-stocks-dashboard/img3.PNG)
 
 ---
 
@@ -33,5 +40,3 @@ A Streamlit-based web dashboard for visualizing real-time stock data and applyin
 - [Plotly](https://plotly.com/python/)
 - [yfinance](https://github.com/ranaroussi/yfinance)
 - [ta-lib (Technical Analysis Library)](https://github.com/bukosabino/ta)
-
----

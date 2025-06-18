@@ -5,13 +5,13 @@ A Streamlit-based web dashboard for visualizing real-time stock data and applyin
 ---
 
 ### 📸 Screenshot 1 – Dashboard Overview
-![Dashboard Screenshot 1](Real-Time-stocks-dashboard/img1.JPG)
+![Dashboard Screenshot 1](img1.JPG)
 
 ### 📸 Screenshot 2 – Technical Indicators Display
-![Dashboard Screenshot 2](Real-Time-stocks-dashboard/img2.PNG)
+![Dashboard Screenshot 2](img2.PNG)
 
 ### 📸 Screenshot 3 – Multi-Ticker and Interactive Chart
-![Dashboard Screenshot 3](Real-Time-stocks-dashboard/img3.PNG)
+![Dashboard Screenshot 3](img3.PNG)
 
 ---
 

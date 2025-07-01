@@ -6,6 +6,7 @@ import yfinance as yf
 from datetime import datetime, timedelta
 import pytz
 import ta
+from ta.trend import SMAIndicator, EMAIndicator
 
 # Fetch stock data
 def fetch_stock_data(ticker, period, interval):

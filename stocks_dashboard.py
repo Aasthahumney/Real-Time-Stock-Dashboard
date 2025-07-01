@@ -40,8 +40,9 @@ def calculate_metrics(data):
 
 # Add SMA and EMA
 def add_technical_indicators(data):
-    data['SMA_20'] = ta.trend.sma_indicator(data['Close'], window=20)
-    data['EMA_20'] = ta.trend.ema_indicator(data['Close'], window=20)
+    close_series = data['Close']  # Ensure it's a Series, not a DataFrame
+    data['SMA_20'] = SMAIndicator(close=close_series, window=20).sma_indicator()
+    data['EMA_20'] = EMAIndicator(close=close_series, window=20).ema_indicator()
     return data
 
 # Set up Streamlit app

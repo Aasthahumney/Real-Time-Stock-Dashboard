@@ -1,6 +1,3 @@
-pip install streamlit plotly pandas yfinance ta pytz
-streamlit run stock_dashboard.py
-
 import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go

@@ -40,7 +40,15 @@ def calculate_metrics(data):
 
 # Add SMA and EMA
 def add_technical_indicators(data):
-    close_series = data['Close']  # Ensure it's a Series, not a DataFrame
+    # Make sure 'Close' is a flat 1D Series
+    close_series = data['Close']
+    
+    # If it's 2D, flatten it
+    if isinstance(close_series, pd.DataFrame):
+        close_series = close_series.squeeze()  # Converts (390,1) -> (390,)
+    elif hasattr(close_series, 'values') and close_series.values.ndim > 1:
+        close_series = pd.Series(close_series.values.ravel(), index=data.index)
+
     data['SMA_20'] = SMAIndicator(close=close_series, window=20).sma_indicator()
     data['EMA_20'] = EMAIndicator(close=close_series, window=20).ema_indicator()
     return data

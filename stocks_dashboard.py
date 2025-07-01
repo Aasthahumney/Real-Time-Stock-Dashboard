@@ -29,7 +29,7 @@ def process_data(data):
 
 # Calculate stock metrics
 def calculate_metrics(data):
-    last_close = data['Close'].iloc[-1]
+    last_close = data['Close'].iloc[-1]  # returns a float
     prev_close = data['Close'].iloc[0]
     change = last_close - prev_close
     pct_change = (change / prev_close) * 100

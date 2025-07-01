@@ -29,14 +29,32 @@ def process_data(data):
 
 # Calculate stock metrics
 def calculate_metrics(data):
-    last_close = data['Close'].iloc[-1].item()  # Now a float
-    prev_close = data['Close'].iloc[0].item()
+    last_close = data['Close'].iloc[-1]
+    prev_close = data['Close'].iloc[0]
+    
+    # Ensure scalars
+    if isinstance(last_close, pd.Series):
+        last_close = last_close.squeeze()
+    if isinstance(prev_close, pd.Series):
+        prev_close = prev_close.squeeze()
+
     change = last_close - prev_close
     pct_change = (change / prev_close) * 100
+
     high = data['High'].max()
+    if isinstance(high, pd.Series):
+        high = high.squeeze()
+
     low = data['Low'].min()
+    if isinstance(low, pd.Series):
+        low = low.squeeze()
+
     volume = data['Volume'].sum()
-    return last_close, change, pct_change, high, low, volume
+    if isinstance(volume, pd.Series):
+        volume = volume.squeeze()
+
+    return float(last_close), float(change), float(pct_change), float(high), float(low), float(volume)
+
 
 
 # Add SMA and EMA

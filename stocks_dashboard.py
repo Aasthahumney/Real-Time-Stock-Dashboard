@@ -132,13 +132,18 @@ for symbol in stock_symbols:
     if not real_time_data.empty:
         real_time_data = process_data(real_time_data)
         try:
-            last_price = real_time_data['Close'].iloc[-1].item()
-            open_price = real_time_data['Open'].iloc[0].item()
-            change = last_price - open_price
-            pct_change = (change / open_price) * 100
-            st.sidebar.metric(f"{symbol}", f"{last_price:.2f} USD", f"{change:.2f} ({pct_change:.2f}%)")
+            last_price = real_time_data['Close'].iloc[-1]
+            open_price = real_time_data['Open'].iloc[0]
+
+            if pd.api.types.is_scalar(last_price) and pd.api.types.is_scalar(open_price):
+                change = last_price - open_price
+                pct_change = (change / open_price) * 100
+                st.sidebar.metric(f"{symbol}", f"{last_price:.2f} USD", f"{change:.2f} ({pct_change:.2f}%)")
+            else:
+                st.sidebar.write(f"Unexpected data shape for {symbol}")
         except Exception as e:
             st.sidebar.write(f"Error processing {symbol}: {e}")
+
 
 # Sidebar info
 st.sidebar.subheader('About')

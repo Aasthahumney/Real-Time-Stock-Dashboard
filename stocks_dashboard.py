@@ -29,14 +29,15 @@ def process_data(data):
 
 # Calculate stock metrics
 def calculate_metrics(data):
-    last_close = data['Close'].iloc[-1]  # returns a float
-    prev_close = data['Close'].iloc[0]
+    last_close = data['Close'].iloc[-1].item()  # Now a float
+    prev_close = data['Close'].iloc[0].item()
     change = last_close - prev_close
     pct_change = (change / prev_close) * 100
     high = data['High'].max()
     low = data['Low'].min()
     volume = data['Volume'].sum()
     return last_close, change, pct_change, high, low, volume
+
 
 # Add SMA and EMA
 def add_technical_indicators(data):
@@ -81,7 +82,7 @@ if st.sidebar.button('Update'):
     last_close, change, pct_change, high, low, volume = calculate_metrics(data)
 
     st.metric(label=f"{ticker} Last Price", value=f"{last_close:.2f} USD", delta=f"{change:.2f} ({pct_change:.2f}%)")
-
+    
     col1, col2, col3 = st.columns(3)
     col1.metric("High", f"{high:.2f} USD")
     col2.metric("Low", f"{low:.2f} USD")

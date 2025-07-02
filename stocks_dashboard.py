@@ -16,7 +16,13 @@ def fetch_stock_data(ticker, period, interval):
         data = yf.download(ticker, start=start_date, end=end_date, interval=interval, auto_adjust=False)
     else:
         data = yf.download(ticker, period=period, interval=interval, auto_adjust=False)
+
+    # 🧠 Flatten MultiIndex columns if they exist
+    if isinstance(data.columns, pd.MultiIndex):
+        data.columns = [' '.join(col).strip() for col in data.columns.values]
+
     return data
+
 
 # Format and localize datetime
 def process_data(data):

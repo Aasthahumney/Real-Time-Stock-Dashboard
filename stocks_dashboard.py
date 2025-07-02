@@ -19,7 +19,7 @@ def fetch_stock_data(ticker, period, interval):
 
     # Flatten columns: use only first level (e.g., 'Close') instead of ('Close', 'ADBE')
     if isinstance(data.columns, pd.MultiIndex):
-    data.columns = data.columns.get_level_values(0)
+        data.columns = data.columns.get_level_values(0)
 
     return data
 

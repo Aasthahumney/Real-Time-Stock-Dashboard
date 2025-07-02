@@ -17,9 +17,9 @@ def fetch_stock_data(ticker, period, interval):
     else:
         data = yf.download(ticker, period=period, interval=interval, auto_adjust=False)
 
-    # 🧠 Flatten MultiIndex columns if they exist
+    # Flatten columns: use only first level (e.g., 'Close') instead of ('Close', 'ADBE')
     if isinstance(data.columns, pd.MultiIndex):
-        data.columns = [' '.join(col).strip() for col in data.columns.values]
+    data.columns = data.columns.get_level_values(0)
 
     return data
 
